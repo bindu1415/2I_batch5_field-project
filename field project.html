@@ -1,0 +1,433 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Delivery Service</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: rgb(12, 3, 3);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: x-large;
+        }
+
+        nav {
+            background-color: black;
+            overflow: hidden;
+        }
+
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            float: left;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .main-content {
+            padding: 20px;
+        }
+
+        .product {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .product-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .product-item img {
+    width: 100%;
+    height: 200px; /* Set a fixed height */
+    object-fit: cover; /* Maintain aspect ratio and crop if necessary */
+    border-radius: 5px;
+}
+
+
+        .delivery-form {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 400px;
+            margin: 30px auto;
+        }
+
+        .delivery-form input, .delivery-form select, .delivery-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .menu-page, .contact-page, .login-page {
+            display: none;
+        }
+
+        .menu-page.active, .contact-page.active, .login-page.active {
+            display: block;
+        }
+
+        .shawarma-types, .momos-types, .milkshakes-types {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .type-item {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 250px;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Flavour Box</h1>
+    <p>NEAR VIGNAN UNIVERSITY OPPOSITE TO LIBRARY GATE</p>
+</header>
+
+<nav>
+    <a href="#" onclick="showLoginPage()">Login/Sign-up</a>
+    <a href="#" onclick="showHomePage()">Home</a>
+    <a href="#" onclick="showMenuPage()">Menu</a>
+    <a href="#" onclick="showContactPage()">Contact Us</a>
+</nav>
+<!-- Login Page Content -->
+<div class="main-content login-page" id="login-page">
+    <h2>Login/Sign-up</h2>
+    <form action="#" method="POST">
+        <label for="login-email">Your Email</label>
+        <input type="email" id="login-email" name="email" required><br><br>
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" required>
+
+        <button type="submit">Login</button>
+    </form>
+    
+    <p>or</p>
+    
+    <button onclick="continueWithGoogle()" style="background-color: #db4437; color: white; padding: 10px; border: none; border-radius: 5px; cursor: pointer;">Continue with Google</button>
+    
+    <p>Don't have an account? <a href="#" onclick="showSignupPage()">Sign up</a></p>
+</div>
+
+<!-- Signup Page Content -->
+<div class="main-content login-page" id="signup-page" style="display: none;">
+    <h2>Sign Up</h2>
+    <form action="#" method="POST">
+        <label for="signup-name">Full Name</label>
+        <input type="text" id="signup-name" name="name" required>
+
+        <label for="signup-email">Your Email</label>
+        <input type="email" id="signup-email" name="email" required><br><br>
+
+        <label for="signup-password">Password</label>
+        <input type="password" id="signup-password" name="password" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>
+
+<script>
+    function showSignupPage() {
+        document.getElementById('login-page').style.display = 'none';
+        document.getElementById('signup-page').style.display = 'block';
+    }
+    
+    function continueWithGoogle() {
+        alert("Redirecting to Google Authentication...");
+    }
+</script>
+<!-- Home Page Content -->
+<div class="main-content" id="home-page">
+    <h2>Featured Products</h2>
+    <div class="product">
+        <div class="product-item">
+            <img src="C:\Users\DELL\OneDrive\Desktop\shawmra 1.jpeg">
+            <h3><a href="#" onclick="showShawarmaTypes()">Shawarma</a></h3>
+        </div>
+        <div class="product-item">
+            <img src="C:\Users\DELL\OneDrive\Desktop\mamos 1.jpeg" >
+            <h3><a href="#" onclick="showMomosTypes()">Momos</a></h3>
+        </div>
+        <div class="product-item">
+            <img src="C:\Users\DELL\OneDrive\Desktop\milkshake 1.jpeg" >
+            <h3><a href="#" onclick="showMilkShakesTypes()">Milk Shakes</a></h3>
+        </div>
+    </div>
+
+    <h2>Delivery Form</h2>
+    <div class="delivery-form">
+        <form action="#" method="POST">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="address">Delivery Address</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="product">Select Products</label>
+            <select id="product" name="product[]" multiple>
+                <option value="shawarma">Shawarma</option>
+                <option value="momos">Momos</option>
+                <option value="MilkShakes">MilkShakes</option>
+               
+            </select>
+            <div id="quantities"></div>
+            <button type="submit">Place Order</button>
+        </form>
+    </div>
+</div>
+
+<div id="bill-section" style="display:none; background-color: white; max-width: 500px; margin: 20px auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+    <h3>Order Summary</h3>
+    <ul id="bill-details" style="list-style: none; padding-left: 0;"></ul>
+    <h4 id="total-amount"></h4>
+</div>
+
+<!-- Menu Page Content -->
+<div class="main-content menu-page" id="menu-page">
+    <h2>Our Menu</h2>
+    <div id="shawarma-types-container" class="shawarma-types"></div>
+    <div id="momos-types-container" class="momos-types"></div>
+    <div id="milkshakes-types-container" class="milkshakes-types"></div>
+</div>
+<!-- Contact Us Page Content -->
+<div class="main-content contact-page" id="contact-page">
+    <h2>Contact Us</h2>
+    <p>Email: <a href="mailto:abhipachipulusu@gmail.com">abhipachipulusu@gmail.com</a></p>
+    <p>Phone Number: <a href="tel:+918688887273">8688887273</a></p>
+</div>
+
+<footer>
+    <p>&copy; 2025 Online Delivery Service | only cash and delivery</p>
+</footer>
+
+<script>
+    // Show and Hide Page Functions
+    
+    document.getElementById('product').addEventListener('change', function () {
+    let selectedOptions = Array.from(this.selectedOptions).map(option => option.value);
+    let quantitiesDiv = document.getElementById('quantities');
+    quantitiesDiv.innerHTML = '';
+
+    selectedOptions.forEach(product => {
+        let label = document.createElement('label');
+        label.innerText = `Select quantity for ${product}`;
+
+        let typeLabel = document.createElement('label');
+        let typeSelect = document.createElement('select');
+        typeSelect.name = `${product}_type`;
+
+        let types = {
+            shawarma: ['Chicken Shawarma $5', 'Special Chicken Shawarma $6', 'Pot Shawarma $7', 'Panipuri Shawarma $10'],
+            momos: ['Steamed Momos $6', 'Fried Momos $7', 'Tandoori Momos $8'],
+            MilkShakes: ['Chocolate $10', 'Oreo $10', 'Strawberry $10', 'Kit Kat $10']
+        };
+
+        if (types[product]) {
+            typeLabel.innerText = `Select type of ${product}`;
+            types[product].forEach(type => {
+                let option = document.createElement('option');
+
+                // Normalize value to match the priceMap keys
+                option.value = type
+                .toLowerCase()
+                .replace(/\s+/g, '_')
+                .replace(/[^a-z0-9_$]/g, '');  // ✅ this keeps the $ so it matches priceMap
+
+
+                option.innerText = type;
+                typeSelect.appendChild(option);
+            });
+
+            quantitiesDiv.appendChild(typeLabel);
+            quantitiesDiv.appendChild(typeSelect);
+        }
+
+        let quantityLabel = document.createElement('label');
+        quantityLabel.innerText = `Enter quantity for selected ${product}`;
+
+        let quantityInput = document.createElement('input');
+        quantityInput.type = 'number';
+        quantityInput.name = `quantity_${product}`;
+        quantityInput.placeholder = 'Enter quantity';
+
+        quantitiesDiv.appendChild(quantityLabel);
+        quantitiesDiv.appendChild(quantityInput);
+        quantitiesDiv.appendChild(document.createElement('br'));
+    });
+});
+
+    function showHomePage() {
+        document.getElementById('home-page').style.display = 'block';
+        document.getElementById('menu-page').style.display = 'none';
+        document.getElementById('contact-page').style.display = 'none';
+        document.getElementById('login-page').style.display = 'none';
+    }
+    function showMenuPage() {
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('menu-page').style.display = 'block';
+        document.getElementById('contact-page').style.display = 'none';
+        document.getElementById('login-page').style.display = 'none';
+    }
+    function showContactPage() {
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('menu-page').style.display = 'none';
+        document.getElementById('contact-page').style.display = 'block';
+        document.getElementById('login-page').style.display = 'none';
+    }
+    function showLoginPage() {
+        document.getElementById('home-page').style.display = 'none';
+        document.getElementById('menu-page').style.display = 'none';
+        document.getElementById('contact-page').style.display = 'none';
+        document.getElementById('login-page').style.display = 'block';
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+        const menuItems = {
+    shawarma: [
+        { name: "Chicken Shawarma $5", image: "C:/Users/DELL/OneDrive/Desktop/shawmra 1.jpeg" },
+        { name: "Special Chicken Shawarma $6", image: "C:/Users/DELL/OneDrive/Desktop/shawrama2.jpeg" },
+        { name: "Pot Shawarma $7", image: "C:/Users/DELL/OneDrive/Desktop/pot.jpeg" },
+        { name: "Panipuri Shawarma $8", image: "C:/Users/DELL/OneDrive/Desktop/panipuru.jpeg" }
+    ],
+    momos: [
+        { name: "Steamed Momos $6", image:"C:/Users/DELL/OneDrive/Desktop/mammos 3.jpeg" },
+        { name: "Fried Momos $8", image: "C:/Users/DELL/OneDrive/Desktop/mamos 1.jpeg" },
+        { name: "Tandoori Momos $10", image: "C:/Users/DELL/OneDrive/Desktop/mamos 2.jpeg" }
+    ],
+    milkshakes: [
+        { name: "Chocolate $10", image: "C:/Users/DELL/OneDrive/Desktop/milkshake 1.jpeg" },
+        { name: "Oreo $10", image: "C:/Users/DELL/OneDrive/Desktop/milk 3.jpeg" },
+        { name: "Strawberry $10", image: "C:/Users/DELL/OneDrive/Desktop/milk 4.jpeg" },
+        { name: "Kit Kat $10", image: "C:/Users/DELL/OneDrive/Desktop/milk 2.jpeg" }
+    ],
+    
+    
+};
+
+
+    function addItemsToMenu(category, items) {
+    const container = document.getElementById(`${category}-types-container`);
+    if (!container) return;
+    
+    container.innerHTML = "";
+    items.forEach(item => {
+        const div = document.createElement("div");
+        div.classList.add("type-item");
+        div.innerHTML = `
+            <img src="${item.image}" alt="${item.name}" style="width: 100%; border-radius: 5px;">
+            <h3>${item.name}</h3>
+        `;
+        container.appendChild(div);
+    });
+}
+
+    Object.keys(menuItems).forEach(category => {
+        addItemsToMenu(category, menuItems[category]);
+    });
+});
+</script>
+<script>
+document.querySelector(".delivery-form form").addEventListener("submit", function(e) {
+    e.preventDefault(); // Prevent form from actually submitting
+
+    const selectedProducts = Array.from(document.getElementById("product").selectedOptions).map(option => option.value);
+    const billDetails = document.getElementById("bill-details");
+    const billSection = document.getElementById("bill-section");
+    const totalAmountEl = document.getElementById("total-amount");
+
+    let total = 0;
+    let orderSummary = "Order Summary:\n\n";
+    billDetails.innerHTML = '';
+
+    const priceMap = {
+        "chicken_shawarma_$5": 5,
+        "special_chicken_shawarma_$6": 6,
+        "pot_shawarma_$7": 7,
+        "panipuri_shawarma_$10": 10,
+        "steamed_momos_$6": 6,
+        "fried_momos_$7": 7,
+        "tandoori_momos_$8": 8,
+        "chocolate_$10": 10,
+        "oreo_$10": 10,
+        "strawberry_$10": 10,
+        "kit_kat_$10": 10
+    };
+
+    selectedProducts.forEach(product => {
+        const typeSelect = document.querySelector(`select[name="${product}_type"]`);
+        const quantityInput = document.querySelector(`input[name="quantity_${product}"]`);
+
+        if (typeSelect && quantityInput) {
+            const selectedType = typeSelect.value;
+            const quantity = parseInt(quantityInput.value) || 0;
+
+            const pricePerItem = priceMap[selectedType] || 0;
+            const itemName = typeSelect.options[typeSelect.selectedIndex].text;
+
+            if (quantity > 0) {
+                const cost = pricePerItem * quantity;
+                total += cost;
+
+                const li = document.createElement("li");
+                li.innerText = `${itemName} x ${quantity} = $${cost}`;
+                billDetails.appendChild(li);
+
+                orderSummary += `${itemName} x ${quantity} = $${cost}\n`;
+            }
+        }
+    });
+
+    totalAmountEl.innerText = `Total: $${total}`;
+    billSection.style.display = 'block';
+
+    orderSummary += `\nTotal Amount: $${total}`;
+    alert(orderSummary);
+});
+</script>
+
+</body>
+</html>
